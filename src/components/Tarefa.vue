@@ -14,7 +14,7 @@ export default {
         estadoTarefa() {
             return {
                 pendente: this.tarefa.pendente,
-                feito: this.tarefa.feito
+                feito: !this.tarefa.pendente
             }
         }
     }
