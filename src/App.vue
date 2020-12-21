@@ -1,13 +1,24 @@
 <template>
 	<div id="app">
 		<h1>Tarefas</h1>
-		
+		<ListaTarefas :tarefas="tarefas"/>
 	</div>
 </template>
 
 <script>
+import ListaTarefas from './components/ListaTarefas.vue'
 export default {
-	
+	components: {
+		ListaTarefas
+	},
+	data () {
+		return {
+			tarefas: [
+				{nome: 'Fazer atividade física', pendente: true},
+				{nome: 'Trocar corda do violão', pendente: false}
+			]
+		}
+	}
 }
 </script>
 
