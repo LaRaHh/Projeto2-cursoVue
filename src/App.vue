@@ -2,7 +2,7 @@
 	<div id="app">
 		<h1>Tarefas</h1>
 		<NovaTarefa @tarefaAdc="adicionarTrf"/>
-		<ListaTarefas :tarefas="tarefas"/>
+		<ListaTarefas :tarefas="tarefas" @tarefaDeletada="deletarTrf"/>
 	</div>
 </template>
 
@@ -16,10 +16,7 @@ export default {
 	},
 	data () {
 		return {
-			tarefas: [
-				{nome: 'Fazer atividade física', pendente: true},
-				{nome: 'Trocar corda do violão', pendente: false}
-			]
+			tarefas: []
 		}
 	},
 	methods: {
@@ -33,6 +30,9 @@ export default {
 					pendente: tarefa.pendente || true
 				})
 			}
+		},
+		deletarTrf(i) {
+			this.tarefas.splice(i, 1)
 		}
 	}
 }
