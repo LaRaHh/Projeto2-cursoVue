@@ -1,5 +1,5 @@
 <template>
-    <div class="listaTarefas">
+    <div class="lista-tarefas">
         <template v-if="tarefas.length">
             <Tarefa v-for="tarefa in tarefas" :key="tarefa.nome" :tarefa="tarefa">
             </Tarefa>
@@ -22,13 +22,13 @@ export default {
 </script>
 
 <style>
-    .listaTarefas{
+    .lista-tarefas{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
     }
 
-    .listaTarefas .tarefa{
+    .lista-tarefas .tarefa{
         margin: 10px;
     }
 
