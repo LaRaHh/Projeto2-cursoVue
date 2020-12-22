@@ -1,7 +1,7 @@
 <template>
     <div class="lista-tarefas">
         <template v-if="tarefas.length">
-            <Tarefa v-for="(tarefa, i) in tarefas" :key="tarefa.nome" :tarefa="tarefa" @tarefaDeletada="$emit('tarefaDeletada', i)">
+            <Tarefa v-for="(tarefa, i) in tarefas" :key="tarefa.nome" :tarefa="tarefa" @tarefaDeletada="$emit('tarefaDeletada', i)" @estadoTrfMudou="$emit('estadoTrfMudou', i)">
             </Tarefa>
         </template>
         <p v-else class="sem-tarefa">Sem ter o que fazer?? Adicione uma tarefa</p>

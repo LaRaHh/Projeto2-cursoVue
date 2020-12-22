@@ -2,7 +2,7 @@
 	<div id="app">
 		<h1>Tarefas</h1>
 		<NovaTarefa @tarefaAdc="adicionarTrf"/>
-		<ListaTarefas :tarefas="tarefas" @tarefaDeletada="deletarTrf"/>
+		<ListaTarefas :tarefas="tarefas" @tarefaDeletada="deletarTrf" @estadoTrfMudou="alternarTrf"/>
 	</div>
 </template>
 
@@ -33,6 +33,9 @@ export default {
 		},
 		deletarTrf(i) {
 			this.tarefas.splice(i, 1)
+		},
+		alternarTrf(i) {
+			this.tarefas[i].pendente = !this.tarefas[i].pendente
 		}
 	}
 }
