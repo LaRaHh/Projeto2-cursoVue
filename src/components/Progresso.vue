@@ -1,13 +1,46 @@
 <template>
-    <div class="progresso"></div>
+    <div class="progresso-tarefas">
+        <span class="progresso-valor">{{ progresso }}%</span>
+        <div class="barra-progresso" :style="{width: progresso + '%'}"></div>
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'Progresso'
+    name: 'Progresso',
+    props: {
+        progresso: {type: Number, default: 0}
+    }
 }
 </script>
 
 <style>
+    .progresso-tarefas{
+        position: relative;
+        width: 80%;
+        border: 1px solid #FFF;
+        color: #FFF;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        height: 20px;
 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .barra-progresso{
+        position: absolute;
+        border-radius: 8px;
+        height: 100%;
+        background-color: #4CAF50;
+        align-self: flex-start;
+
+    }
+
+    .progresso-valor{
+        z-index: 1;
+        font-size: 1rem;
+    }
 </style>

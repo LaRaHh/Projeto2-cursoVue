@@ -2,22 +2,34 @@
 	<div id="app">
 		<h1>Tarefas</h1>
 		<NovaTarefa @tarefaAdc="adicionarTrf"/>
+		<Progresso :progresso="progresso" />
 		<ListaTarefas :tarefas="tarefas" @tarefaDeletada="deletarTrf" @estadoTrfMudou="alternarTrf"/>
 	</div>
 </template>
 
 <script>
+import Progresso from './components/Progresso.vue'
 import ListaTarefas from './components/ListaTarefas.vue'
 import NovaTarefa from './components/NovaTarefa'
 export default {
 	components: {
 		ListaTarefas,
-		NovaTarefa
+		NovaTarefa,
+		Progresso
 	},
 	data () {
 		return {
 			tarefas: []
 		}
+	},
+	computed: {
+		progresso() {
+			const total = this.tarefas.length
+			const feito = this.tarefas.filter(t => !t.pendente).length
+
+			return Math.round(feito / total * 100) || 0
+		}
+	
 	},
 	methods: {
 		adicionarTrf(tarefa) {
