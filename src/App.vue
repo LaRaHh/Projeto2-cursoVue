@@ -31,6 +31,14 @@ export default {
 		}
 	
 	},
+	watch: {
+		tarefas: {
+			deep: true,
+			handler() {
+				localStorage.setItem('tarefas', JSON.stringify(this.tarefas))
+			}
+		}
+	},
 	methods: {
 		adicionarTrf(tarefa) {
 			const mesmoNome = t => t.nome === tarefa.nome
@@ -49,6 +57,11 @@ export default {
 		alternarTrf(i) {
 			this.tarefas[i].pendente = !this.tarefas[i].pendente
 		}
+	},
+	created() {
+		const json = localStorage.getItem('tarefas')
+		const array = JSON.parse(json)
+		this.tarefas = Array.isArray(array) ? array : []
 	}
 }
 </script>
