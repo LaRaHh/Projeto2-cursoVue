@@ -44,7 +44,7 @@ export default {
 			const mesmoNome = t => t.nome === tarefa.nome
 			const novaTarefa = this.tarefas.filter(mesmoNome).length == 0
 
-			if(novaTarefa){
+			if(novaTarefa && tarefa.nome != ''){
 				this.tarefas.push({
 					nome: tarefa.nome,
 					pendente: tarefa.pendente || true

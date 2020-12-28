@@ -1,7 +1,7 @@
 <template>
     <div class="nova-tarefa">
         <input type="text" v-model="nome" @keydown.enter="adicionar" placeholder="Nova tarefa" class="el-formulario">
-        <button @click="adicionar" class="el-formulario">+</button>
+        <button  @click="adicionar" class="el-formulario">+</button>
     </div>
 </template>
 
